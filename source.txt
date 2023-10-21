@@ -1,0 +1,4 @@
+French: Bonjour
+German: Hallo
+Italian: Ciao
+Hindi: Namaste

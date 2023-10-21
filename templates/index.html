@@ -1,29 +1,59 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Translation Service</title>
+    <title>Translator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{ url_for('static', filename='languages.js') }}"></script>
     <script src="{{ url_for('static', filename='translate.js') }}"></script>
 </head>
 <body>
-    <h1>Translation Service</h1>
-    <div>
-        <label for="sentence">Enter a Sentence:</label>
-        <input type="text" id="sentence" placeholder="Enter your sentence">
+    <div class="container">
+        <header>
+            <h1>Language Translator</h1>
+        </header>
+        <div class="input-section">
+            <label for="sentence">Enter a Sentence:</label>
+            <input type="text" id="sentence" placeholder="Enter your sentence">
+        </div>
+        <div class="language-section">
+            <label for="sourceLang">Select Source Language:</label>
+            <select id="sourceLang"></select>
+            <label for="targetLang">Select Target Language:</label>
+            <select id="targetLang"></select>
+        </div>
+        <button id="translateButton">Translate</button>
+        <div class="result-section">
+            <h2>Translation Result:</h2>
+            <p id="translationResult"></p>
+        </div>
     </div>
-    <div>
-        <label for="sourceLang">Select Source Language:</label>
-        <select id="sourceLang"></select>
-    </div>
-    <div>
-        <label for "targetLang">Select Target Language:</label>
-        <select id="targetLang"></select>
-    </div>
-    <button id="translateButton">Translate</button>
-    <div>
-        <h2>Translation Result:</h2>
-        <p id="translationResult"></p>
-    </div>
+    <script>
+        document.getElementById("translateButton").addEventListener("click", function() {
+            var sourceLang = document.getElementById("sourceLang").value;
+            var targetLang = document.getElementById("targetLang").value;
+            var sourceLanguageCode = getLanguageCode(sourceLang);
+            var targetLanguageCode = getLanguageCode(targetLang);
+
+            document.documentElement.lang = sourceLanguageCode + "-x-mtfrom-" + targetLanguageCode;
+        });
+
+        function getLanguageCode(language) {
+            var languageCodes = {
+                'en': 'es',
+                'es': 'en',
+                'hi': 'en',
+                'en': 'hi',
+                'fr': 'en',
+                'en': 'fr',
+                'de': 'en',
+                'en': 'de',
+                'it': 'en',
+                'en': 'it',
+                'zu': 'en',
+                'en': 'zu',
+            };
+
+            return languageCodes[language] || 'und'; // 'und' for undetermined
+        }
+    </script>
 </body>
 </html>
-

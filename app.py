@@ -25,7 +25,7 @@ def translate():
     response = requests.post(api_url, data=data)
     translation_data = response.json()
     translation = translation_data['sentences'][0]['trans']
-    
+
     return jsonify({'translation': translation})
 
 if __name__ == '__main__':
