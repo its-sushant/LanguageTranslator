@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from decouple import config
+import json
 import requests
 
 app = Flask(__name__)
@@ -10,9 +11,10 @@ def index():
 
 @app.route('/translate', methods=['POST'])
 def translate():
-    sentence = request.form.get('sentence')
-    source_lang = request.form.get('sourceLang')
-    target_lang = request.form.get('targetLang')
+    request_data = request.get_json()
+    sentence = request_data['sentence']
+    source_lang = request_data['sourceLang']
+    target_lang = request_data['targetLang']
 
     api_url = config('API_URL')
 
@@ -23,8 +25,8 @@ def translate():
     }
 
     response = requests.post(api_url, data=data)
-    translation_data = response.json()
-    translation = translation_data['sentences'][0]['trans']
+    parsed_response = json.loads(response.text)
+    translation = parsed_response['sentences'][0]['trans']
 
     return jsonify({'translation': translation})
 

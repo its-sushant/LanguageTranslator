@@ -1,4 +1,11 @@
-English: Hello
-English: Hello
-English: Hello
-English: Hello
+French: Bonjour
+German: Hallo
+Italian: Ciao
+Hindi: नमस्ते
+Zulu: Sawubona
+
+French: Je suis content
+German: ich bin glücklich
+Italian: sono felice
+Hindi: मैं खुश हूँ
+Zulu: ngijabulile

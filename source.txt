@@ -1,4 +1,11 @@
-French: Bonjour
-German: Hallo
-Italian: Ciao
-Hindi: Namaste
+English: Hello
+English: Hello
+English: Hello
+English: Hello
+English: Hello
+
+English: I am happy
+English: I am happy
+English: I am happy
+English: I am happy
+English: I am happy

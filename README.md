@@ -1,6 +1,6 @@
 # Language Translator Web Application
 
-![Translator Demo](static/translator_image.png)
+![Translator Demo](static/translate_image.png)
 
 ## Introduction
 
